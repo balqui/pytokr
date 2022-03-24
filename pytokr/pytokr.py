@@ -37,18 +37,19 @@ get_toks, get_tok = make_get_toks()
 
 if __name__ == "__main__":
     "example usages"
-    print("Please write some lines and end with control-D:")
+    print("Please write some lines and end with a line containing only control-D:")
     print("First word of first line was:", get_tok()) 
     "can be casted as int or float when/as necessary"
     print("Then comes the rest of the lines.")
     for w in get_toks():
         "traverse rest of stdin"
         print(w)
-    print("Now with another iterable of splittable strings.")
+    print("\n\nNow with another iterable made of splittable strings,")
     g = [ "10 11 12", "13 14", "15 16 17 18" ]
+    print("namely:", g)
     get_toks, get_tok = make_get_toks(g) # new variant to traverse g
     for w in get_toks():
         "see how we can mix them up"
-        print("from for:", w)
-        print("within for:", get_tok())
-        print("also within for:", get_tok())
+        print("\nvar at for get_toks() loop:", w)
+        print("get_tok() within for:", get_tok())
+        print("again get_tok() within for:", get_tok())
