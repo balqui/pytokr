@@ -1,6 +1,6 @@
 
 
-from tokr import get_tok
+from pytokr import get_tok
 
 more = True
 while more:

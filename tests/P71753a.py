@@ -1,6 +1,6 @@
 
 
-from tokr import get_tok, get_toks
+from pytokr import get_tok, get_toks
 
 for n in get_toks():
     m = int(get_tok())

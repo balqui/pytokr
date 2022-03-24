@@ -1,6 +1,6 @@
 
 
-from tokr import get_tok, get_toks
+from pytokr import get_tok, get_toks
 
 x = float(get_tok())
 x_pow = 1

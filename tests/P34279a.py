@@ -1,6 +1,6 @@
 
 
-from tokr import get_tok
+from pytokr import get_tok
 
 def dig2(k):
 	if k < 10:
