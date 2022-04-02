@@ -32,19 +32,19 @@ convenient, falls upon the caller.
 Based on [Jutge problem P29448](https://jutge.org/problems/P29448_en)
 Correct Dates (and removing spoilers):
 
-`from pytokr import items, item`
+`from pytokr import items, item
 
-`for d in items():`
+for d in items():
 
-    `m, y = item(), item()`
+    m, y = item(), item()
 
-    `if correct_date(int(d), int(m), int(y)):`
+    if correct_date(int(d), int(m), int(y)):
 
-        `print("Correct Date")`
+        print("Correct Date")
 
-    `else:`
+    else:
 
-        `print("Incorrect Date")`
+        print("Incorrect Date")`
 
 ## Usage on other string-based iterables
 
