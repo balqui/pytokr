@@ -1,22 +1,36 @@
 """
-Author: Jose Luis Balcazar, ORCID 0000-0003-4248-4528 
+Author: Jose Luis Balcazar, ORCID 0000-0003-4248-4528, balqui at GitHub
 Copyleft: MIT License (https://en.wikipedia.org/wiki/MIT_License)
 Start date: Germinal 2022.
 
-Very simple tokenizer for stdin and similar objects. Finds toks
-(simple tokens white-space separated); ends of line are counted
-as white space but are otherwise ignored. 
+Very simple tokenizer for stdin and similar objects. Finds items
+(simple tokens white-space separated) in a string-based iterable
+such as stdin (default). Ends of line are counted as white space 
+but are otherwise ignored. 
 
 Provides: 
-- get_tok() that obtains the next tok and 
-- iterator get_toks() on which to run a for loop to traverse all toks. 
-Both combine naturally. Programmed using lexical closure strategy.
+- item() that obtains the next item and 
+- iterator items() on which one can run a for loop to traverse 
+all the items.
+ 
+Both combine naturally: item() can be called inside the for
+loop and this advances the items; so the next item at the loop 
+will be the current one after the local advances.
+
+Token items are returned as strings; user should cast them as
+int or float or whatever when appropriate.
+
+Programmed using lexical closure strategy.
+
+Usage: for reading in items from stdin, just import item and/or
+items; for usage on another string-based iterable, import and
+call make_tokr.
 """
 
 
-def make_get_toks(f=None):
+def make_tokr(f=None):
     "make iterator and next functions out of iterable of split strings"
-    from sys import stdin
+
     from itertools import chain
 
     def sp(ln):
@@ -28,28 +42,27 @@ def make_get_toks(f=None):
         return it
 
     if f is None:
-        f = stdin
+        from sys import stdin as f
     it = chain.from_iterable(map(sp, f))
     return the_it, it.__next__
 
 
-get_toks, get_tok = make_get_toks()
+items, item = make_tokr()
 
 if __name__ == "__main__":
     "example usages"
     print("Please write some lines and end with a line containing only control-D:")
-    print("First word of first line was:", get_tok()) 
-    "can be casted as int or float when/as necessary"
+    print("First word of first line was:", item()) 
     print("Then comes the rest of the lines.")
-    for w in get_toks():
+    for w in items():
         "traverse rest of stdin"
         print(w)
     print("\n\nNow with another iterable made of splittable strings,")
     g = [ "10 11 12", "13 14", "15 16 17 18" ]
     print("namely:", g)
-    get_toks, get_tok = make_get_toks(g) # new variant to traverse g
-    for w in get_toks():
+    items, item = make_tokr(g) # new variant to traverse g
+    for w in items():
         "see how we can mix them up"
-        print("\nvar at for get_toks() loop:", w)
-        print("get_tok() within for:", get_tok())
-        print("again get_tok() within for:", get_tok())
+        print("\nCurrent value of w at for w in items() loop:", w)
+        print("item() grabbed within the loop:", item())
+        print("another item() grabbed also within the loop:", item())
