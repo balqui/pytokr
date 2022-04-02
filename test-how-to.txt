@@ -1,6 +1,0 @@
-cd to pytokr
-make sure __init__ in tests
-python3 -m unittest tests.whatever (without the .py of whatever.py)
-make sure whatever.py includes unittest-compatible tests 
-(right now they don't but they are executed and I can check behavior anyway)
-
