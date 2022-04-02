@@ -9,6 +9,13 @@ conceptual consistency with C/C++. Actually easyinput
 has grown in ways I find inappropriate for many of my 
 students and I want to try now a different road.
 
+## Install
+
+Not pip-ready yet. Download or clone, then put the pytokr
+folder where Python can see it from wherever you want to use it.
+
+Plan is to offer it through pip at some point in the future.
+
 ## Simplest usage
 
 `from pytokr import item, items`
@@ -53,6 +60,8 @@ will provide adapted versions of `item` and `items` to
 be obtained from `g`.
 
 ## To do: 
+
+- Make it pip-ready.
 
 - Automatize a process that generates a jutge-testable 
 source even if jutge does not have pytokr (or get it to
