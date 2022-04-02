@@ -67,6 +67,9 @@ be obtained from `g`.
 source even if jutge does not have pytokr (or get it to
 have pytokr).
 
+- Sources in the 'jutge-like' folder may be using 
+obsolete identifiers; don't look at them too much.
+
 - Calling 'tokens' the items sounded bad to me, first, 
 because of the simplicity of the case and, second, due 
 to the early programming level of my target students. 
