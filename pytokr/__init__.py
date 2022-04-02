@@ -28,7 +28,7 @@ call make_tokr.
 """
 
 
-def make_tokr(f=None):
+def make_tokr(f = None):
     "make iterator and next functions out of iterable of split strings"
 
     from itertools import chain
@@ -38,7 +38,7 @@ def make_tokr(f=None):
         return ln.split()
 
     def the_it():
-        "so that both results are callable in similar manner"
+        "so that both, items and item, are called with parentheses"
         return it
 
     if f is None:

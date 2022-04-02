@@ -18,6 +18,10 @@ Plan is to offer it through pip at some point in the future.
 
 ## Simplest usage
 
+Finds items (simple tokens white-space separated) in a 
+string-based iterable such as stdin (default). Ends of 
+line are counted as white space but are otherwise ignored. Usage:
+
 `from pytokr import item, items`
 
 (or only one of them as convenient). Then `item()` will provide
@@ -25,10 +29,10 @@ the next item in `stdin` and `for w in items()` will iterate on
 whatever remains there. Calling `item()` at end of file will
 raise an exception.
 
-It is valid to call `item()` within a `for w in items()` loop
-provided there is still at least one item not yet read. The
-reading will advance on and the next item in the loop will 
-correspond to the advance.
+Both combine naturally: it is valid to call `item()` within 
+a `for w in items()` loop provided there is still at least 
+one item not yet read. The reading will advance on and the 
+next item in the loop will correspond to the advance.
 
 All items provided are of type `str` and will not contain 
 white space; casting into `int` or `float` or whatever, if
@@ -56,8 +60,8 @@ file or a list of strings, the call
 
 `item, items = make_tokr(g)`
 
-will provide adapted versions of `item` and `items` to
-be obtained from `g`.
+will provide adapted versions of `item` and `items` that
+will read them in from `g` instead of from `stdin`.
 
 ## To do: 
 
