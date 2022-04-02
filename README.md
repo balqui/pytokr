@@ -30,7 +30,7 @@ provided there is still at least one item not yet read. The
 reading will advance on and the next item in the loop will 
 correspond to the advance.
 
-All items provided are of type `str` and cannot cointain 
+All items provided are of type `str` and will not contain 
 white space; casting into `int` or `float` or whatever, if
 convenient, falls upon the caller.
 
@@ -66,3 +66,11 @@ be obtained from `g`.
 - Automatize a process that generates a jutge-testable 
 source even if jutge does not have pytokr (or get it to
 have pytokr).
+
+- Calling 'tokens' the items sounded bad to me, first, 
+because of the simplicity of the case and, second, due 
+to the early programming level of my target students. 
+Calling them 'items' is suboptimal though, since we are 
+going to study `dict`'s later on and risk confusions. 
+But I settled on 'items' for the time being anyway;
+alternative suggestions welcome.
