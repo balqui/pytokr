@@ -33,17 +33,11 @@ Based on [Jutge problem P29448](https://jutge.org/problems/P29448_en)
 Correct Dates (and removing spoilers):
 
     from pytokr import items, item
-
     for d in items():
-
         m, y = item(), item()
-
         if correct_date(int(d), int(m), int(y)):
-
             print("Correct Date")
-
         else:
-
             print("Incorrect Date")
 
 ## Usage on other string-based iterables
