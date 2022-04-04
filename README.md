@@ -67,17 +67,24 @@ will read them in from `g` instead of from `stdin`.
 
 - Make it pip-ready.
 
+- Call to item() raises StopIteration on EOF, will be
+a common error when mixing it with items(). Consider
+catching it and raising instead an exception more 
+understandable by beginners.
+
 - Automatize a process that generates a jutge-testable 
 source even if jutge does not have pytokr (or get it to
 have pytokr).
 
-- Sources in the 'jutge-like' folder may be using 
-obsolete identifiers; don't look at them too much.
+- Sources in the 'deprecated/jutge-like' folder use 
+obsolete identifiers; keep updating them and moving
+them to 'jutge_like'.
 
-- Calling 'tokens' the items sounded bad to me, first, 
-because of the simplicity of the case and, second, due 
-to the early programming level of my target students. 
-Calling them 'items' is suboptimal though, since we are 
-going to study `dict`'s later on and risk confusions. 
+- I called the items 'toks' (for very simple 'tokens') 
+but that sounded bad to me, first, because of the 
+simplicity of the case and, second, due to the early 
+programming level of my target students. Calling them 
+'items' seems suboptimal though, since we are going 
+to study `dict`'s later on and then risk confusions. 
 But I settled on 'items' for the time being anyway;
 alternative suggestions welcome.
