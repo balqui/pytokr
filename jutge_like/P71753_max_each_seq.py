@@ -1,8 +1,8 @@
+# ~ from pytokr import get_tok, get_toks
 
-
-def make_get_toks(f=None):
+def make_tokr(f = None):
     "make iterator and next functions out of iterable of split strings"
-    from sys import stdin
+
     from itertools import chain
 
     def sp(ln):
@@ -10,21 +10,22 @@ def make_get_toks(f=None):
         return ln.split()
 
     def the_it():
-        "so that both results are callable in similar manner"
+        "so that both, items and item, are called with parentheses"
         return it
 
     if f is None:
-        f = stdin
+        from sys import stdin as f
     it = chain.from_iterable(map(sp, f))
     return the_it, it.__next__
 
 
-get_toks, get_tok = make_get_toks()
+items, item = make_tokr()
 
-for n in get_toks():
-    m = int(get_tok())
+
+for n in items():
+    m = int(item())
     for i in range(int(n)-1):
-        p = int(get_tok())
+        p = int(item())
         if p > m:
             m = p
     print(m)
