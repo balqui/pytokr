@@ -6,6 +6,7 @@ P34279 Add one second: OK; not a TLE problem
 P71753 Maximum of each sequence: OK; not a TLE problem
 P80660 The sequence of Collatz: OK; not a TLE problem
 P96767 Polynomial evaluation (1): OK; not a TLE problem
+X77133 Long enough plateaus: OK, also some TLE unless full traversal made smart
 
 not OK due to missing TLE:
 
