@@ -11,10 +11,12 @@ students and I want to try now a different road.
 
 ## Install
 
-Not pip-ready yet. Download or clone, then put the pytokr
-folder where Python can see it from wherever you want to use it.
+Current version is 0.0.1.
 
-Plan is to offer it through pip at some point in the future.
+Trying to get it pip-ready these days. If that does not
+work, download or clone the repo, then put the pytokr
+folder where Python can see it from wherever you want 
+to use it.
 
 ## Simplest usage
 
@@ -27,12 +29,15 @@ line are counted as white space but are otherwise ignored. Usage:
 (or only one of them as convenient). Then `item()` will provide
 the next item in `stdin` and `for w in items()` will iterate on
 whatever remains there. Calling `item()` at end of file will
-raise an exception.
+raise an exception StopIteration. Note that, as white-space is 
+ignored, in case only white-space remains then the program *is* 
+at end of file.
 
-Both combine naturally: it is valid to call `item()` within 
-a `for w in items()` loop provided there is still at least 
-one item not yet read. The reading will advance on and the 
-next item in the loop will correspond to the advance.
+Both calls combine naturally: it is valid to call `item()` 
+within a `for w in items()` loop provided there is still 
+at least one item not yet read. The reading will advance 
+on and the next item in the loop will correspond to the 
+advance. Briefly: both advance *the same* iterator.
 
 All items provided are of type `str` and will not contain 
 white space; casting into `int` or `float` or whatever, if
@@ -65,26 +70,24 @@ will read them in from `g` instead of from `stdin`.
 
 ## To do: 
 
-- Make it pip-ready.
-
-- Call to item() raises StopIteration on EOF, will be
-a common error when mixing it with items(). Consider
-catching it and raising instead an exception more 
-understandable by beginners.
+- As said, call to `item()` raises `StopIteration` on 
+end of file; it will be a common error when mixing it 
+with `items()`. Consider catching it and raising instead 
+an exception more understandable by beginners.
 
 - Automatize a process that generates a jutge-testable 
-source even if jutge does not have pytokr (or get it to
-have pytokr).
+source even if jutge does not have pytokr (or, alternatively,
+get it to have pytokr).
 
 - Sources in the 'deprecated/jutge-like' folder use 
 obsolete identifiers; keep updating them and moving
 them to 'jutge_like'.
 
-- I called the items 'toks' (for very simple 'tokens') 
-but that sounded bad to me, first, because of the 
-simplicity of the case and, second, due to the early 
-programming level of my target students. Calling them 
-'items' seems suboptimal though, since we are going 
-to study `dict`'s later on and then risk confusions. 
-But I settled on 'items' for the time being anyway;
-alternative suggestions welcome.
+- I called initially the items 'toks' (for very simple 
+'tokens') but that sounded a bit inappropriate to me, 
+first, because of the simplicity of the case and, 
+second, due to the early programming level of my 
+target students. Calling them 'items' seems suboptimal 
+though, since we are going to study `dict`'s later on 
+and then risk confusions. But I settled on 'items' for 
+the time being anyway; alternative suggestions welcome.
