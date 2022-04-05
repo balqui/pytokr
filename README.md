@@ -11,7 +11,7 @@ students and I want to try now a different road.
 
 ## Install
 
-Current version is 0.0.1.
+Current version is 0.0.2.
 
 Trying to get it pip-ready these days. If that does not
 work, download or clone the repo, then put the pytokr
