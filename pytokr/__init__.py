@@ -3,6 +3,8 @@ Author: Jose Luis Balcazar, ORCID 0000-0003-4248-4528, balqui at GitHub
 Copyleft: MIT License (https://en.wikipedia.org/wiki/MIT_License)
 Start date: Germinal 2022.
 
+This source: version 0.0.1.
+
 Very simple tokenizer for stdin and similar objects. Finds items
 (simple tokens white-space separated) in a string-based iterable
 such as stdin (default). Ends of line are counted as white space 
