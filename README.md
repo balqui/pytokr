@@ -2,21 +2,25 @@
 
 Very simple, somewhat stoned tokenizer for teaching purposes.
 
+Current version is 0.0.2. Only tested on Ubuntus so far.
+
 Behaviorally inspired by the early versions of the 
 [easyinput module](https://github.com/jutge-org/easyinput); 
 shares with it some similar aims, but not the aim of 
 conceptual consistency with C/C++. Actually easyinput 
-has grown in ways I find inappropriate for many of my 
-students and I want to try now a different road.
+has grown in ways I find somewhat inappropriate for 
+many of my current (non-CS) students and I want to 
+try now a different road.
 
 ## Install
 
-Current version is 0.0.1.
+The usual incantation should work: pip install pytokr
+(maybe with either "sudo" or "--user" or within a 
+virtual environment).
 
-Trying to get it pip-ready these days. If that does not
-work, download or clone the repo, then put the pytokr
-folder where Python can see it from wherever you want 
-to use it.
+If that does not work, download or clone the repo, then 
+put the pytokr folder where Python can see it from 
+wherever you want to use it.
 
 ## Simplest usage
 
