@@ -6,9 +6,12 @@ P34279 Add one second: OK; not a TLE problem
 P71753 Maximum of each sequence: OK; not a TLE problem
 P80660 The sequence of Collatz: OK; not a TLE problem
 P96767 Polynomial evaluation (1): OK; not a TLE problem
+X10534 First frequent multiple: in 'deprecated' folder with deprecated identifiers; failed initially to raise TLE, now it works well as the big private test was made bigger
+X14333 Sport event outcome: OK; not a TLE problem
+X18240 Frequent suffixes: OK; not a TLE problem
+X63810 Those lengthy words: OK; not a TLE problem
 X66324 Identifying sections: OK; not a TLE problem
 X77133 Long enough plateaus: OK, also some TLE unless full traversal made smart
-X99803 Maximum of a section: OK, incl TLE
-X10534 First frequent multiple: in 'deprecated' folder with deprecated identifiers; failed initially to raise TLE, now it works well as the big private test was made bigger
 X82064 Two frequent words test: OK; initially failed to raise TLE
 X91546 First frequent over limit: OK; initially failed to raise TLE
+X99803 Maximum of a section: OK, incl TLE
