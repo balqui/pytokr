@@ -9,10 +9,10 @@ P96767 Polynomial evaluation (1): OK; not a TLE problem
 X66324 Identifying sections: OK; not a TLE problem
 X77133 Long enough plateaus: OK, also some TLE unless full traversal made smart
 X99803 Maximum of a section: OK, incl TLE
+X10534 First frequent multiple: in 'deprecated' folder with deprecated identifiers; failed initially to raise TLE, now it works well as the big private test was made bigger
 
 not OK due to failing TLE:
 
-X10534 First frequent multiple: in 'deprecated' folder with deprecated identifiers; fails to raise TLE
 X82064 Two frequent words test: fails to raise TLE
 X91546 First frequent over limit: fails to raise TLE
 
