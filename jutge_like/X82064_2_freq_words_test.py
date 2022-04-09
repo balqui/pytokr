@@ -1,4 +1,3 @@
-# ~ from pytokr import get_tok, get_toks
 
 def make_tokr(f=None):
     "make iterator and next functions out of iterable of split strings"
@@ -30,7 +29,7 @@ m = set()
 
 for w in items():
     frq[w] += 1
-    if frq[w] >= lim and w not in m and len(m) < 2:
+    if frq[w] >= lim: # and len(m) < 2: # difference between accepted and TLE :(
         m.add(w)
 if len(m) < 2:
     print(f'Less than two words appear {lim} or more times.')

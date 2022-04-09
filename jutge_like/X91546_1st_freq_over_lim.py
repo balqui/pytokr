@@ -1,4 +1,3 @@
-# ~ from pytokr import get_tok, get_toks
 
 def make_tokr(f=None):
     "make iterator and next functions out of iterable of split strings"
@@ -32,6 +31,7 @@ for w in items():
     frq[w] += 1
     if frq[w] > lim and m is None:
         m = w
+        # break
 if m is None:
     print(f'No words reach above frequency {lim}.')
 else:
