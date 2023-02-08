@@ -67,7 +67,7 @@ Correct Dates (and removing spoilers):
 Then, if `g` is an iterable of strings such as an open
 file or a list of strings, the call
 
-`item, items = make_tokr(g)`
+`items, item = make_tokr(g)`
 
 will provide adapted versions of `item` and `items` that
 will read them in from `g` instead of from `stdin`.
@@ -78,10 +78,6 @@ will read them in from `g` instead of from `stdin`.
 end of file; it will be a common error when mixing it 
 with `items()`. Consider catching it and raising instead 
 an exception more understandable by beginners.
-
-- Automatize a process that generates a jutge-testable 
-source even if jutge does not have pytokr (or, alternatively,
-get it to have pytokr).
 
 - Sources in the 'deprecated/jutge-like' folder use 
 obsolete identifiers; keep updating them and moving
