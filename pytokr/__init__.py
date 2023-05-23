@@ -38,20 +38,35 @@ all the items.
 iterator.
 This usage is still possible but will send a deprecation warning
 through stderr.
-
-
 """
 
-
-def make_tokr(f = None):
-    "make iterator and next functions out of iterable of split strings"
-    from sys import stderr # for deprecation warning
+def pytokr(f = None, /, also_iter = False):
+    '''
+    make iterator and next functions out of iterable of split strings
+    return next function and, if requested, iterator too
+    '''
 
     from itertools import chain
 
-    def sp(ln):
-        "to split the strings with a map"
-        return ln.split()
+    def the_it():
+        "so that both outcomes are called with parentheses"
+        return it
+
+    if f is None:
+        from sys import stdin as f
+    it = chain.from_iterable(map(str.split, f))
+    if also_iter:
+        return it.__next__, the_it
+    return it.__next__
+
+def make_tokr(f = None):
+    '''
+    deprecated usage - import pytokr instead, see https://github.com/balqui/pytokr
+    make iterator and next functions out of iterable of split strings
+    '''
+    from sys import stderr # for deprecation warning
+
+    from itertools import chain
 
     def the_it():
         "so that both, items and item, are called with parentheses"
@@ -59,11 +74,11 @@ def make_tokr(f = None):
     
     print("[stderr] Functions make_tokr, item, items are deprecated;",
 			file = stderr, end = " ")
-    print("please check https://github.com/balqui/pytokr", file = stderr)
+    print("please see https://github.com/balqui/pytokr", file = stderr)
 
     if f is None:
         from sys import stdin as f
-    it = chain.from_iterable(map(sp, f))
+    it = chain.from_iterable(map(str.split, f))
     return the_it, it.__next__
 
 
