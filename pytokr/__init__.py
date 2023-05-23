@@ -59,30 +59,67 @@ def pytokr(f = None, /, also_iter = False):
         return it.__next__, the_it
     return it.__next__
 
-def make_tokr(f = None):
+# everything below is unnecessary
+# and kept only for partial compatibility with earlier versions:
+# functions work but will print a deprecation warning through stderr
+
+def make_tokr(f = None, /, internal_call = False):
     '''
-    deprecated usage - import pytokr instead, see https://github.com/balqui/pytokr
     make iterator and next functions out of iterable of split strings
+    deprecated usage - import pytokr instead, see https://github.com/balqui/pytokr
+    Param internal_call for appropriate deprecation reporting
     '''
     from sys import stderr # for deprecation warning
 
     from itertools import chain
+    
+    depr_reported = False
 
     def the_it():
-        "so that both, items and item, are called with parentheses"
-        return it
-    
-    print("[stderr] Functions make_tokr, item, items are deprecated;",
-			file = stderr, end = " ")
-    print("please see https://github.com/balqui/pytokr", file = stderr)
+        '''
+        additional usage for deprecation reporting
+        '''
+        def depr_it():
+            nonlocal depr_reported
+            if internal_call and not depr_reported:
+                "user imported item, items, report deprecation once"
+                print("[stderr] Functions items, item, make_tokr are deprecated;",
+                        file = stderr, end = " ")
+                print("please see https://github.com/balqui/pytokr", file = stderr)
+            depr_reported = True
+            return it
+        return depr_it()
+
+    def the_it_next():
+        '''
+        so that both, items and item, are called with parentheses,
+        additional usage for deprecation reporting.
+        '''
+        def depr_it():
+            nonlocal depr_reported
+            if internal_call and not depr_reported:
+                "user imported item, items, report deprecation once"
+                print("[stderr] Functions item, items, make_tokr are deprecated;",
+                        file = stderr, end = " ")
+                print("please see https://github.com/balqui/pytokr", file = stderr)
+            depr_reported = True
+            return it.__next__()
+        return depr_it
+
+    if not internal_call and not depr_reported:
+        "user made its own tokr, report deprecation"
+        print("[stderr] Functions make_tokr, item, items are deprecated;",
+                file = stderr, end = " ")
+        print("please see https://github.com/balqui/pytokr", file = stderr)
+        depr_reported = True
 
     if f is None:
         from sys import stdin as f
     it = chain.from_iterable(map(str.split, f))
-    return the_it, it.__next__
+    return the_it, the_it_next() # it.__next__
 
 
-items, item = make_tokr()
+items, item = make_tokr(internal_call = True)
 
 if __name__ == "__main__":
     "example usages"
