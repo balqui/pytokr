@@ -3,35 +3,49 @@ Author: Jose Luis Balcazar, ORCID 0000-0003-4248-4528, balqui at GitHub
 Copyleft: MIT License (https://en.wikipedia.org/wiki/MIT_License)
 Start date: Germinal 2022.
 
-This source: version 0.0.1.
+This source: version 0.1.1.
 
 Very simple tokenizer for stdin and similar objects. Finds items
 (simple tokens white-space separated) in a string-based iterable
 such as stdin (default). Ends of line are counted as white space 
 but are otherwise ignored. 
 
-Provides: 
-- item() that obtains the next item and 
-- iterator items() on which one can run a for loop to traverse 
-all the items.
- 
-Both combine naturally: item() can be called inside the for
-loop and this advances the items; so the next item at the loop 
-will be the current one after the local advances.
+Provides a function pytokr() that returns: 
+- a function (formerly called item()) that obtains the next item and 
+- if required, an iterator (formerly called items()) on which one can 
+  run a for loop to traverse all the items.
+The returned values of pytokr() may get whatever names the user want.
+
+Both combine naturally: the individual item function can be called 
+inside the for loop of the iterator and this advances the items; 
+so, the next item at the loop will be the current one after the 
+local advances.
 
 Token items are returned as strings; user should cast them as
 int or float or whatever when appropriate.
 
-Programmed using lexical closure strategy.
+Programmed using a lexical closure strategy.
 
 Usage: for reading in items from stdin, just import item and/or
 items; for usage on another string-based iterable, import and
 call make_tokr.
+
+Former usage: one could import
+- item() that obtains the next item and 
+- iterator items() on which one can run a for loop to traverse 
+all the items.
+- make_tokr() to create tailored versions of these function and 
+iterator.
+This usage is still possible but will send a deprecation warning
+through stderr.
+
+
 """
 
 
 def make_tokr(f = None):
     "make iterator and next functions out of iterable of split strings"
+    from sys import stderr # for deprecation warning
 
     from itertools import chain
 
@@ -42,6 +56,10 @@ def make_tokr(f = None):
     def the_it():
         "so that both, items and item, are called with parentheses"
         return it
+    
+    print("[stderr] Functions make_tokr, item, items are deprecated;",
+			file = stderr, end = " ")
+    print("please check https://github.com/balqui/pytokr", file = stderr)
 
     if f is None:
         from sys import stdin as f
