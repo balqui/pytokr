@@ -1,9 +1,10 @@
 """
 Author: Jose Luis Balcazar, ORCID 0000-0003-4248-4528, balqui at GitHub
 Copyleft: MIT License (https://en.wikipedia.org/wiki/MIT_License)
-Start date: Germinal 2022.
+Project start date: Germinal 2022.
 
 This source: version 0.1.1.
+This source date: early Prairial 2023.
 
 Very simple tokenizer for stdin and similar objects. Finds items
 (simple tokens white-space separated) in a string-based iterable
@@ -26,11 +27,15 @@ int or float or whatever when appropriate.
 
 Programmed using a lexical closure strategy.
 
-Usage: for reading in items from stdin, just import item and/or
-items; for usage on another string-based iterable, import and
-call make_tokr.
+Usage: to obtain a function that reads in items from stdin, 
+just call pytokr() and its outcome is that function; to obtain
+additionally an iterator, call pytokr(also_iter = True) and
+grab also the second outcome; for usage on another string-based 
+iterable, give it as first argument of the call to pytokr.
 
-Former usage: one could import
+See examples below.
+
+Former usage, now deprecated: one could import
 - item() that obtains the next item and 
 - iterator items() on which one can run a for loop to traverse 
 all the items.
@@ -59,9 +64,10 @@ def pytokr(f = None, /, also_iter = False):
         return it.__next__, the_it
     return it.__next__
 
-# everything below is unnecessary
-# and kept only for partial compatibility with earlier versions:
-# functions work but will print a deprecation warning through stderr
+# Everything below up to "if __name__" is unnecessary and
+# kept only for partial compatibility with earlier versions:
+# all the functions work but will print a deprecation warning 
+# through stderr.
 
 def make_tokr(f = None, /, internal_call = False):
     '''
