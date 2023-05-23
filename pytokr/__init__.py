@@ -123,6 +123,7 @@ items, item = make_tokr(internal_call = True)
 
 if __name__ == "__main__":
     "example usages"
+    item, items = pytokr(also_iter = True)
     print("Please write some lines and end with a line containing only control-D:")
     print("First word of first line was:", item()) 
     print("Then comes the rest of the lines.")
@@ -132,7 +133,7 @@ if __name__ == "__main__":
     print("\n\nNow with another iterable made of splittable strings,")
     g = [ "10 11 12", "13 14", "15 16 17 18" ]
     print("namely:", g)
-    items, item = make_tokr(g) # new variant to traverse g
+    item, items = pytokr(g, also_iter = True) # new variant to traverse g
     for w in items():
         "see how we can mix them up"
         print("\nCurrent value of w at for w in items() loop:", w)
