@@ -29,7 +29,7 @@ def t():
     Incorrect Date
     '''
     with open("dates_to_test.txt") as f:
-        item, items = pytokr(f, also_iter = True)
+        item, items = pytokr(f, iter = True)
         for d in items():
             m, y = item(), item()
             if corrdate(int(d), int(m), int(y)):

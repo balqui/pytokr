@@ -89,7 +89,7 @@ def make_tokr(f = None, /, internal_call = False):
             nonlocal depr_reported
             if internal_call and not depr_reported:
                 "user imported item, items, report deprecation once"
-                print("[stderr] Functions items, item, make_tokr are deprecated;",
+                print("[stderr] Since version 0.1.*, functions items, item, make_tokr are deprecated;",
                         file = stderr, end = " ")
                 print("please see https://github.com/balqui/pytokr", file = stderr)
             depr_reported = True
@@ -105,7 +105,7 @@ def make_tokr(f = None, /, internal_call = False):
             nonlocal depr_reported
             if internal_call and not depr_reported:
                 "user imported item, items, report deprecation once"
-                print("[stderr] Functions item, items, make_tokr are deprecated;",
+                print("[stderr] Since version 0.1.*, functions item, items, make_tokr are deprecated;",
                         file = stderr, end = " ")
                 print("please see https://github.com/balqui/pytokr", file = stderr)
             depr_reported = True
@@ -114,7 +114,7 @@ def make_tokr(f = None, /, internal_call = False):
 
     if not internal_call and not depr_reported:
         "user made its own tokr, report deprecation"
-        print("[stderr] Functions make_tokr, item, items are deprecated;",
+        print("[stderr] Since version 0.1.*, functions make_tokr, item, items are deprecated;",
                 file = stderr, end = " ")
         print("please see https://github.com/balqui/pytokr", file = stderr)
         depr_reported = True
