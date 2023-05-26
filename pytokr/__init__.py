@@ -7,7 +7,7 @@ This source: version 0.1.1.
 This source date: early Prairial 2023.
 
 Very simple tokenizer for stdin and similar objects. Finds items
-(simple tokens white-space separated) in a string-based iterable
+(simply white-space separated tokens) in a string-based iterable
 such as stdin (default). Ends of line are counted as white space 
 but are otherwise ignored. 
 
@@ -15,14 +15,15 @@ Provides a function pytokr() that returns:
 - a function (formerly called item()) that obtains the next item and 
 - if required, an iterator (formerly called items()) on which one can 
   run a for loop to traverse all the items.
-The returned values of pytokr() may get whatever names the user want.
+As of version 0.1.1, the returned values of pytokr() may get whatever 
+names the user want.
 
 Both combine naturally: the individual item function can be called 
 inside the for loop of the iterator and this advances the items; 
 so, the next item at the loop will be the current one after the 
 local advances.
 
-Token items are returned as strings; user should cast them as
+Token items are returned as strings; the user should cast them as
 int or float or whatever when appropriate.
 
 Programmed using a lexical closure strategy.
@@ -35,7 +36,7 @@ iterable, give it as first argument of the call to pytokr.
 
 See examples below.
 
-Former usage, now deprecated: one could import
+Former usage for versions 0.0.*, now deprecated: one could import
 - item() that obtains the next item and 
 - iterator items() on which one can run a for loop to traverse 
 all the items.
@@ -45,7 +46,7 @@ This usage is still possible but will send a deprecation warning
 through stderr.
 """
 
-def pytokr(f = None, /, also_iter = False):
+def pytokr(f = None, /, iter = False):
     '''
     make iterator and next functions out of iterable of split strings
     return next function and, if requested, iterator too
@@ -60,14 +61,13 @@ def pytokr(f = None, /, also_iter = False):
     if f is None:
         from sys import stdin as f
     it = chain.from_iterable(map(str.split, f))
-    if also_iter:
+    if iter:
         return it.__next__, the_it
     return it.__next__
 
-# Everything below up to "if __name__" is unnecessary and
-# kept only for partial compatibility with earlier versions:
-# all the functions work but will print a deprecation warning 
-# through stderr.
+# Everything below, down to "if __name__ ...", is unnecessary and
+# kept only for partial backwards compatibility: all the functions 
+# work, but will print a deprecation warning through stderr.
 
 def make_tokr(f = None, /, internal_call = False):
     '''
@@ -129,7 +129,7 @@ items, item = make_tokr(internal_call = True)
 
 if __name__ == "__main__":
     "example usages"
-    item, items = pytokr(also_iter = True)
+    item, items = pytokr(iter = True)
     print("Please write some lines and end with a line containing only control-D:")
     print("First word of first line was:", item()) 
     print("Then comes the rest of the lines.")
@@ -139,7 +139,7 @@ if __name__ == "__main__":
     print("\n\nNow with another iterable made of splittable strings,")
     g = [ "10 11 12", "13 14", "15 16 17 18" ]
     print("namely:", g)
-    item, items = pytokr(g, also_iter = True) # new variant to traverse g
+    item, items = pytokr(g, iter = True) # new variant to traverse g
     for w in items():
         "see how we can mix them up"
         print("\nCurrent value of w at for w in items() loop:", w)
