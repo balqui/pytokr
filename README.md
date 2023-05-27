@@ -110,7 +110,10 @@ raise an exception EndOfDataError. Note that, as white-space is
 ignored, in case only white-space remains then the program *is* 
 at end of data.
 
-### Old, deprecataed usage on other string-based iterables
+### Old, deprecated usage on other string-based iterables
+
+Again, this still works on 0.1.0 but will print a deprecation
+message on `stderr`:
 
 `from pytokr import make_tokr`
 
