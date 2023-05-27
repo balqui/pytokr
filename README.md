@@ -43,10 +43,10 @@ whatever name you see fit, say, `item`:
 
 Then, successive calls to `item()` will provide you with
 successive tokens from `stdin`. In case no items remain,
-a StopIteration exception will be raised.
+an EndOfDataError exception will be raised.
 
 If a different source of items is desired, say `source` 
-(e.g. a `file` just `open`ed or a list of strings), 
+(e.g. a `file` just `open`'ed or a list of strings), 
 simply pass it on:
 
 `item = pytokr(source)`
@@ -56,9 +56,9 @@ iterator over the items, say you want to name it `items`:
 
 `item, items = pytokr(iter = True)`
 
-(a call that would accept as well a `source` as first parameter).
+(such call would accept as well a `source` as first parameter).
 Then you can run `for itm in items():` or make up a `ls = list(items())`
-and, with some care, avoid the depending on the StopIteration
+and, with some care, avoid the dependence on the EndOfDataError
 exception.
 
 Both combine naturally: the individual item function can be called 
@@ -98,7 +98,7 @@ Correct Dates (and removing spoilers):
 
 These versions were employed in a different manner. Version
 0.1.0 can still be employed in the same way for some
-backwards compatibility but will print a deprecation
+backwards compatibility, but will print a deprecation
 message to `stderr`. This old usage was:
 
 `from pytokr import item, items`
@@ -106,11 +106,11 @@ message to `stderr`. This old usage was:
 (or only one of them as convenient). Then `item()` will provide
 the next item in `stdin` and `for w in items()` will iterate on
 whatever remains there. Calling `item()` at end of file will
-raise an exception StopIteration. Note that, as white-space is 
+raise an exception EndOfDataError. Note that, as white-space is 
 ignored, in case only white-space remains then the program *is* 
-at end of file.
+at end of data.
 
-### Usage on other string-based iterables
+### Old, deprecataed usage on other string-based iterables
 
 `from pytokr import make_tokr`
 
