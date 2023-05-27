@@ -46,6 +46,19 @@ This usage is still possible but will send a deprecation warning
 through stderr.
 """
 
+def hide_StopIteration(next_method):
+    "Renaming the exception so as to hide the StopIteration message from the novice users"
+    EndOfDataError = Exception("Function produced by pytokr called at end of data, nothing to read")
+    ok = True
+    def new_next():
+        try:
+            return next_method()
+        except StopIteration:
+            ok = False
+        if not ok:
+            raise EndOfDataError
+    return new_next
+
 def pytokr(f = None, /, iter = False):
     '''
     make iterator and next functions out of iterable of split strings
@@ -61,9 +74,10 @@ def pytokr(f = None, /, iter = False):
     if f is None:
         from sys import stdin as f
     it = chain.from_iterable(map(str.split, f))
+    new_next = hide_StopIteration(it.__next__)
     if iter:
-        return it.__next__, the_it
-    return it.__next__
+        return new_next, the_it
+    return new_next
 
 # Everything below, down to "if __name__ ...", is unnecessary and
 # kept only for partial backwards compatibility: all the functions 
@@ -110,7 +124,7 @@ def make_tokr(f = None, /, internal_call = False):
                 print("please see https://github.com/balqui/pytokr", file = stderr)
             depr_reported = True
             return it.__next__()
-        return depr_it
+        return hide_StopIteration(depr_it)
 
     if not internal_call and not depr_reported:
         "user made its own tokr, report deprecation"
