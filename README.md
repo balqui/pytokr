@@ -2,7 +2,8 @@
 
 Very simple, somewhat stoned tokenizer for teaching purposes.
 
-Current version is 0.0.2. Only tested on Ubuntus so far.
+Current pip-installable version is 0.0.2 but the current status
+of the repository is version 0.1.0.
 
 Behaviorally inspired by the early versions of the 
 [easyinput module](https://github.com/jutge-org/easyinput); 
