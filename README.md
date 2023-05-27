@@ -43,7 +43,9 @@ whatever name you see fit, say, `item`:
 
 Then, successive calls to `item()` will provide you with
 successive tokens from `stdin`. In case no items remain,
-an EndOfDataError exception will be raised.
+an EndOfDataError exception will be raised. Note that, 
+as white-space is ignored, in case only white-space remains 
+then the program *is* at end of data.
 
 If a different source of items is desired, say `source` 
 (e.g. a `file` just `open`'ed or a list of strings), 
@@ -106,9 +108,7 @@ message to `stderr`. This old usage was:
 (or only one of them as convenient). Then `item()` will provide
 the next item in `stdin` and `for w in items()` will iterate on
 whatever remains there. Calling `item()` at end of file will
-raise an exception EndOfDataError. Note that, as white-space is 
-ignored, in case only white-space remains then the program *is* 
-at end of data.
+raise an exception EndOfDataError. 
 
 ### Old, deprecated usage on other string-based iterables
 
