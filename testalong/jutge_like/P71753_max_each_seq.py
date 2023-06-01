@@ -1,4 +1,4 @@
-# ~ from pytokr import get_tok, get_toks
+from pytokr import pytokr
 
 def make_tokr(f = None):
     "make iterator and next functions out of iterable of split strings"
@@ -19,7 +19,7 @@ def make_tokr(f = None):
     return the_it, it.__next__
 
 
-items, item = make_tokr()
+item, items = pytokr(iter = True)
 
 
 for n in items():
