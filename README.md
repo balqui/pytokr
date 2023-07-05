@@ -2,8 +2,7 @@
 
 Very simple, somewhat stoned tokenizer for teaching purposes.
 
-Current pip-installable version is 0.0.2 but the current status
-of the repository is version 0.1.0.
+Current version 0.1.1 both for this repo and for the pip-installable version.
 
 Behaviorally inspired by the early versions of the 
 [easyinput module](https://github.com/jutge-org/easyinput); 
@@ -13,7 +12,12 @@ conceptual consistency with C/C++.
 <!--- Actually easyinput 
 has grown in ways I find somewhat inappropriate for 
 many of my current (non-CS) students and I want to 
-try now a different road. --->
+try now a different road. 
+
+Current pip-installable version is 0.0.2 but the current status
+of the repository is version 0.1.0.
+
+--->
 
 A separate, different evolution of `easyinput` is 
 [yogi](https://github.com/jutge-org/yogi).
