@@ -39,7 +39,7 @@ Simplest usage is
 
 Then call `item()` to keep retrieving white-space-sparated
 items from `stdin`. In case no items remain, a custom 
-EndOfDataError exception will be raised. Note that, 
+`EndOfDataError` exception will be raised. Note that, 
 as white-space is ignored, including ends of line, 
 in case only white-space remains then the program _is_ at 
 end of data. The outcomes are `str`: casting them into 
@@ -66,7 +66,7 @@ In case you import both, they will interact naturally: the
 individual `item()` function can be called inside a `for` 
 loop on the iterator, provided there is still at least 
 one item not yet read. That call will advance the items; 
-so, the next item at the loop will be the current one after 
+so, the next item at the loop will be the current one _after_ 
 the local advances. Briefly: both advance _the same_ iterator.
 
 ## Slightly less simple usage
@@ -92,9 +92,9 @@ iterator over the items, say you want to name it `items`:
 
 `item, items = pytokr(iter = True)`
 
-(such call would accept as well a `source` as first parameter).
+(such a call would accept as well a `source` as first parameter).
 Then you can run `for itm in items():` or make up a `ls = list(items())`
-and, with some care, avoid the dependence on the EndOfDataError
+and, with some care, avoid the dependence on the `EndOfDataError`
 exception. Both combine naturally as explained above.
 
 Also `from pytokr import __version__` works as expected.
@@ -127,6 +127,7 @@ Correct Dates (and removing spoilers):
 
     from pytokr import pytokr
     item, items = pytokr(iter = True)
+    # alternative: from pytokr import item, items
     for d in items():
         m, y = item(), item()
         if correct_date(int(d), int(m), int(y)):
@@ -137,8 +138,9 @@ Correct Dates (and removing spoilers):
 ## (Un)Deprecations
 
 The import of `item` and `items` has gone through several
-deprecation and undeprecation stages. Please try to upgrade
-to the most advanced version and check the descriptions above.
+deprecation and undeprecation stages. They are currently
+undeprecated and usable with normality. Please try to upgrade
+to the most advanced version of `pytokr` and check the descriptions above.
 
 The function `make_tokr` from earlier versions stays
 deprecated. If employed on version 1.0 it will still work
