@@ -30,7 +30,7 @@ Programmed using a lexical closure strategy.
 
 Usage: to obtain a function that reads in items from stdin, 
 just call pytokr() and its outcome is that function; to obtain
-additionally an iterator, call pytokr(also_iter = True) and
+additionally an iterator, call pytokr(iter = True) and
 grab also the second outcome; for usage on another string-based 
 iterable, give it as first argument of the call to pytokr.
 
