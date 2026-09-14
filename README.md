@@ -2,7 +2,8 @@
 
 Very simple, somewhat stoned tokenizer for teaching purposes.
 
-Current version 1.0 both for this repo and for the pip-installable version.
+Current version 1.1 for this repo, will become also 
+the pip-installable version "soon".
 
 Behaviorally inspired by the early versions of the 
 [easyinput module](https://github.com/jutge-org/easyinput); 

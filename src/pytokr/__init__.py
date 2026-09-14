@@ -3,8 +3,8 @@ Author: Jose Luis Balcazar, ORCID 0000-0003-4248-4528, balqui at GitHub
 Copyleft: MIT License (https://en.wikipedia.org/wiki/MIT_License)
 Project start date: Germinal 2022.
 
-This source: version 1.0
-This source date: late Messidor, 2024
+This source: version 1.1
+This source date: late Fructidor 2026, just a clean-up of Messidor 2024
 
 Very simple tokenizer for `stdin` and similar objects. Finds items
 (simply white-space-separated tokens) in a string-based iterable
@@ -49,7 +49,7 @@ still possible for backwards compatibility but a deprecation warning
 will be sent through stderr.
 """
 
-__version__ = "1.0"
+__version__ = "1.1"
 
 def detect_end_of_data(next_method):
     "Renaming the exception so as to hide the StopIteration message from the novice users"
