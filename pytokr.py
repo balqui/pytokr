@@ -49,7 +49,7 @@ still possible for backwards compatibility but a deprecation warning
 will be sent through stderr.
 """
 
-__version__ = "1.2.0"
+__version__ = "1.2.1"
 
 def detect_end_of_data(next_method):
     "Renaming the exception so as to hide the StopIteration message from the novice users"

@@ -2,19 +2,11 @@
 
 Very simple, somewhat stoned tokenizer for teaching purposes.
 
-Current version 1.1 for this repo, will become also 
-the pip-installable version "soon".
-
 Behaviorally inspired by the early versions of the 
 [easyinput module](https://github.com/jutge-org/easyinput); 
 shares with it some similar aims, but not the aim of 
 conceptual consistency with C/C++. A separate, different 
 evolution of `easyinput` is [yogi](https://github.com/jutge-org/yogi).
-
-
-<!--- CHECK OUT THE --upgrade INDICATION
---->
-
 
 ## Install
 
@@ -22,7 +14,8 @@ The usual incantation should work: `pip install pytokr` or,
 in case you already have an earlier `pytokr`,
 `pip install --upgrade pytokr`
 (maybe with either `sudo` or `--user` or within a 
-virtual environment).
+virtual environment). You may need to call `pip` 
+preceded by `python -m`. 
 
 If that does not work, download or clone the repo, then 
 put the `pytokr` folder where Python can see it from 
@@ -100,27 +93,6 @@ exception. Both combine naturally as explained above.
 
 Also `from pytokr import __version__` works as expected.
 
-<!--- Both calls combine naturally: it is valid to call `item()` 
-within a `for w in items()` loop provided there is still 
-at least one item not yet read. The reading will advance 
-on and the next item in the loop will correspond to the 
-advance. 
-
-Then, successive calls to `item()` will provide you with
-successive tokens from `stdin`. 
-A call to `item()` at end of data raises 
-the custom `EndOfDataError` exception.
-
-
-Token items are returned as strings; the user should cast them as
-int or float or whatever when appropriate.
-
-All items provided are of type `str` and will not contain 
-white space; cast them explicitly 
-into `int` or `float` or whatever if that is what you need. 
-
---->
-
 ## Example
 
 Based on [Jutge problem P29448](https://jutge.org/problems/P29448_en)
@@ -144,24 +116,6 @@ undeprecated and usable with normality. Please try to upgrade
 to the most advanced version of `pytokr` and check the descriptions above.
 
 The function `make_tokr` from earlier versions stays
-deprecated. If employed on version 1.0 it will still work
-but will print a deprecation message on `stderr`.
+deprecated. If employed on the current version it will 
+still work but will print a deprecation message on `stderr`.
 
-
-<!--- ## To do: 
-
-- Sources in the 'tests/deprecated/' folder may use 
-obsolete identifiers; keep updating them and moving
-them to other appropriate folders (not sure how many
-yet to go).
-
-- I called initially the items 'toks' (for very simple 
-'tokens') but that sounded a bit inappropriate to me, 
-first, because of the simplicity of the case and, 
-second, due to the early programming level of my 
-target students. Calling them 'items' seems suboptimal 
-though, since we are going to study `dict`'s later on 
-and then risk confusions. But I settled on 'items' for 
-the time being anyway; alternative suggestions welcome.
-
---->
