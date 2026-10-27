@@ -3,8 +3,8 @@ Author: Jose Luis Balcazar, ORCID 0000-0003-4248-4528, balqui at GitHub
 Copyleft: MIT License (https://en.wikipedia.org/wiki/MIT_License)
 Project start date: Germinal 2022.
 
-This source: version 1.1
-This source date: late Fructidor 2026, just a clean-up of Messidor 2024
+This source date: early Brumaire, undoing the task of late 
+Fructidor 2026 into something closer to what I had in Messidor 2024.
 
 Very simple tokenizer for `stdin` and similar objects. Finds items
 (simply white-space-separated tokens) in a string-based iterable
@@ -12,9 +12,9 @@ such as `stdin` (default). Ends of line are counted as white space
 but are otherwise ignored. 
 
 Provides a function `pytokr()` that returns: 
-- a function (often called `item()`) that obtains the next item and 
-- if required, an iterator (often called `items()`) on which one can 
-  run a `for` loop to traverse all the items.
+- a function (often called `read()` or `item()`) that obtains the next item and 
+- if required, an iterator (often called `loop()` or `items()`) 
+  on which one can run a `for` loop to traverse all the items.
 Of course, the returned values of `pytokr()` may get whatever names the 
 user want; alternatively, the user may import directly `item()` and 
 `items()`.
@@ -30,14 +30,14 @@ int or float or whatever when appropriate.
 Programmed using a lexical closure strategy.
 
 Usage: 
-(a) simply import `item`, `items`, or both as necessary, maybe 
+(a) import `pytokr` to obtain a function that, when called, will
+return a function that provides the next token; to obtain additionally 
+an iterator, call `pytokr(iter = True)` and grab also the second 
+outcome; for usage on another string-based iterable, give that 
+iterable as first, unnamed argument of the call to `pytokr()`.
+(b) simply import `item`, `items`, or both as necessary, maybe 
 renaming them if you wish in the standard Python way (using an
-`as` clause), or 
-(b) import `pytokr` to obtain a function that, when called, will
-return a function operating as `item()`; to obtain additionally an 
-iterator, call `pytokr(iter = True)` and grab also the second outcome; 
-for usage on another string-based iterable, give that iterable as first, 
-unnamed argument of the call to `pytokr()`.
+`as` clause).
 
 See examples below.
 
@@ -49,7 +49,7 @@ still possible for backwards compatibility but a deprecation warning
 will be sent through stderr.
 """
 
-__version__ = "1.1"
+__version__ = "1.2.0"
 
 def detect_end_of_data(next_method):
     "Renaming the exception so as to hide the StopIteration message from the novice users"
@@ -126,7 +126,7 @@ def make_tokr(f = None):
     return the_it, the_it_next()
 
 if __name__ == "__main__":
-    "example usages"
+    "example usages, should be moved into a testing folder one day"
     print("Test of imported item, items.")
     print("Please write some lines and end with a line containing only control-D:")
     print("First word of first line was:", item()) 
